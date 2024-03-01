@@ -34,3 +34,5 @@ Route::prefix('category')->group(function () {
 Route::get('/user/{id}/name/{name}', [UserController::class, 'index'])->name('user');
 
 Route::get('/sales', [SalesController::class, 'index'])->name('sales');
+
+//test
