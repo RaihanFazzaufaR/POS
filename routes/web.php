@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LevelController;
 use App\Http\Controllers\SalesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use Monolog\Level;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,7 @@ use App\Http\Controllers\ProductController;
 //     return view('welcome');
 // });
 
+//Pertemuan 2
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('category')->group(function () {
@@ -35,4 +38,5 @@ Route::get('/user/{id}/name/{name}', [UserController::class, 'index'])->name('us
 
 Route::get('/sales', [SalesController::class, 'index'])->name('sales');
 
-//test
+//Pertemuan 3
+Route::get('/level', [LevelController::class, 'index']);
