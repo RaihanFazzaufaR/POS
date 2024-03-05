@@ -35,10 +35,11 @@ Route::prefix('category')->group(function () {
     Route::get('/baby-kid', [ProductController::class, 'babyKid'])->name('baki');
 });
 
-Route::get('/user/{id}/name/{name}', [UserController::class, 'index'])->name('user');
+// Route::get('/user/{id}/name/{name}', [UserController::class, 'index'])->name('user');
 
 Route::get('/sales', [SalesController::class, 'index'])->name('sales');
 
 //Pertemuan 3
 Route::get('/level', [LevelController::class, 'index']);
 Route::get('/kategori', [KategoriController::class, 'index']);
+Route::get('/user', [UserController::class, 'index']);
