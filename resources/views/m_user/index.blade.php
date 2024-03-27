@@ -17,22 +17,26 @@
     </div>
 @endif
 
-<table class="table table-bordered">
-    <tr>
-        <th width="20px" class="text-center">User id</th>
-        <th width="150px" class="text-center">Level id</th>
-        <th width="200px" class="text-center">username</th>
-        <th width="200px" class="text-center">nama</th>
-        <th width="150px" class="text-center">password</th>
-    </tr>
-    @foreach ($useri as $m_user)
-    <tr>
-        <td>{{ $m_user->user_id }}</td>
-        <td>{{ $m_user->level_id }}</td>
+<table class="table-striped">
+    <thead>
+        <tr class="text-center">
+            <th>User id</th>
+            <th>Level id</th>
+            <th>username</th>
+            <th>nama</th>
+            <th>password</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($useri as $m_user)
+    <tr class="text-center">
+        <td class="col-1">{{ $m_user->user_id }}</td>
+        <td class="col-1">{{ $m_user->level_id }}</td>
         <td>{{ $m_user->username }}</td>
         <td>{{ $m_user->nama }}</td>
         <td>{{ $m_user->password }}</td>
-        <td class="text-center">
+        <td class="text-center col-8">
             <form action="{{ route('m_user.destroy',$m_user->user_id) }}" method="POST">
                 <a class="btn btn-info btn-sm" href="{{ route('m_user.show',$m_user->user_id) }}">Show</a>
                 <a class="btn btn-primary btn-sm" href="{{ route('m_user.edit',$m_user->user_id) }}">Edit</a>
@@ -43,5 +47,6 @@
         </td>
     </tr>
     @endforeach
+    </tbody>
 </table>
 @endsection

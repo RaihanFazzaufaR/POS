@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LevelModel;
 use Illuminate\Http\Request;
 use App\Models\UserModel as m_user;
 
@@ -21,7 +22,8 @@ class POSController extends Controller
      */
     public function create()
     {
-        return view('m_user.create');
+        $level = LevelModel::all();
+        return view('m_user.create', compact('level'));
     }
 
     /**
