@@ -37,6 +37,8 @@ class POSController extends Controller
             'nama' => 'required',
         ]);
         m_user::create($request->all());
+
+        return redirect()->route('m_user.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -76,7 +78,7 @@ class POSController extends Controller
      */
     public function destroy(string $id)
     {
-        $useri = m_user::findOrFail($id);
-        return \redirect()->route('m_user.index')->with('success', 'Data berhasil dihapus');
+        $useri = m_user::findOrFail($id)->delete();
+        return redirect()->route('m_user.index')->with('success', 'Data berhasil dihapus');
     }
 }
