@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\POSController;
 use Monolog\Level;
 
 /*
@@ -59,3 +60,5 @@ Route::get('kategori/edit/{id}', [KategoriController::class, 'edit'])->name('kat
 Route::put('kategori/update/{id}', [KategoriController::class, 'update'])->name('kategoriUpdate');
 
 Route::get('kategori/delete/{id}', [KategoriController::class, 'destroy'])->name('kategoriDelete');
+
+Route::resource('m_user', POSController::class);
