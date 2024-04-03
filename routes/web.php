@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\POSController;
+use App\Http\Controllers\WelcomeController;
 use Monolog\Level;
 
 /*
@@ -26,7 +27,7 @@ use Monolog\Level;
 // });
 
 //Pertemuan 2
-Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('category')->group(function () {
     Route::get('/', [ProductController::class, 'index'])->name('category');
@@ -62,3 +63,5 @@ Route::put('kategori/update/{id}', [KategoriController::class, 'update'])->name(
 Route::get('kategori/delete/{id}', [KategoriController::class, 'destroy'])->name('kategoriDelete');
 
 Route::resource('m_user', POSController::class);
+
+Route::get('/', [WelcomeController::class, 'index']);
