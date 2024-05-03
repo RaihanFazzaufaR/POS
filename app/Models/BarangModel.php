@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class BarangModel extends Model
 {
@@ -18,6 +19,7 @@ class BarangModel extends Model
         'barang_nama',
         'harga_beli',
         'harga_jual',
+        'image'
     ];
 
     public function kategori(): BelongsTo
@@ -32,5 +34,12 @@ class BarangModel extends Model
 
     public function stok(): HasOne{
         return $this->hasOne(StokModel::class, 'barang_id', 'barang_id');
+    }
+
+    public function image(): Attribute
+    {
+        return Attribute::make( 
+            get: fn ($image) => url("storage/posts/". $image),
+        );
     }
 }
