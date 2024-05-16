@@ -33,6 +33,9 @@ Route::get('/', [WelcomeController::class, 'index']);
 Route::get('/file-upload', [FileUploadController::class, 'fileUpload']);
 Route::post('/file-upload', [FileUploadController::class, 'prosesFileUpload']);
 
+Route::get('/file-upload-rename', [FileUploadController::class, 'fileUploadRename']);
+Route::post('/file-upload-rename', [FileUploadController::class, 'prosesFileUploadRename']);
+
 Route::group(['prefix'=>'user'], function(){
     Route::get('/', [UserController::class, 'index']);          // menampilkan halaman awal user
     Route::post('/list', [UserController::class, 'list']);      // menampilkan data user dalam bentuk json untuk datatables

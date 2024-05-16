@@ -6,6 +6,28 @@ use Illuminate\Http\Request;
 
 class FileUploadController extends Controller
 {
+    public function fileUploadRename()
+    {
+        return view('file-upload-rename');
+    }
+
+    public function prosesFileUploadRename(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required',
+            'berkas' => 'required|file|max:500'
+        ]);
+        $namaFile = $request->nama . "." . $request->berkas->getClientOriginalExtension();
+
+        $request->berkas->storeAs('public', $namaFile);
+        $newPath = asset('storage/'. $namaFile);
+        
+        echo "Gambar berhasil diupload ke <a href='$newPath'>$namaFile</a>";
+        echo "<br>";
+        echo "<img src='$newPath'>";
+
+
+    }
     public function fileUpload()
     {
         return view('file-upload');

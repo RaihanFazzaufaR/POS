@@ -76,8 +76,14 @@ class BarangController extends Controller
             'harga_beli' => 'required|integer',
             'harga_jual' => 'required|integer',
             'stok_jumlah' => 'required|integer',
-            'user_id' => 'required|integer|exists:m_user,user_id'
+            'user_id' => 'required|integer|exists:m_user,user_id',
+            'image' => 'image|mimes:jpeg,png,jpg|max:2048'
         ]);
+
+        if($request->hasFile('image')){
+            $img = $request->image->store('public/barang');
+            $path = str_replace('public', 'storage', $img);
+        }
 
         BarangModel::create([
             'kategori_id' => $request->kategori_id,
@@ -85,6 +91,7 @@ class BarangController extends Controller
             'barang_nama' => $request->barang_nama,
             'harga_beli' => $request->harga_beli,
             'harga_jual' => $request->harga_jual,
+            'image' => isset($img) ? $path : null
         ]);
 
         StokModel::create([

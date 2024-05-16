@@ -42,6 +42,12 @@
                     <th>Stok</th>
                     <td>{{ $stok->stok_jumlah }}</td>
                 </tr>
+                <tr>
+                    <th>Gambar</th>
+                    <td>
+                        <img src="{{ asset($barang->image) }}" alt="{{ $barang->barang_nama }}" class="img-thumbnail" width="200">
+                    </td>
+                </tr>
             </table>
         @endempty
         <a href="{{ url('barang') }}" class="btn btn-sm btn-default mt-2">Kembali</a>

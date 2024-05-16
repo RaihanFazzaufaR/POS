@@ -36,10 +36,10 @@ class BarangModel extends Model
         return $this->hasOne(StokModel::class, 'barang_id', 'barang_id');
     }
 
-    public function image(): Attribute
-    {
-        return Attribute::make( 
-            get: fn ($image) => url("storage/posts/". $image),
-        );
-    }
+    // public function image(): Attribute
+    // {
+    //     return Attribute::make( 
+    //         get: fn ($image) => url("storage/posts/". $image),
+    //     );
+    // }
 }
