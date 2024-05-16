@@ -16,6 +16,7 @@ use App\Http\Controllers\StokController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FileUploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +28,10 @@ use App\Http\Controllers\AuthController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', [WelcomeController::class, 'index']);
+
+Route::get('/file-upload', [FileUploadController::class, 'fileUpload']);
+Route::post('/file-upload', [FileUploadController::class, 'prosesFileUpload']);
 
 Route::group(['prefix'=>'user'], function(){
     Route::get('/', [UserController::class, 'index']);          // menampilkan halaman awal user
